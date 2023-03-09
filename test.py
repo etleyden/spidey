@@ -1,9 +1,10 @@
-import urllib.request
+import sqlite3
+from datetime import datetime
 
-test_url = "https://www.lathropschools.com/"
+print(datetime.now())
 
-text = urllib.request.urlopen(test_url).read()
+db = sqlite3.connect("db/spidey_db.db")
+cursor = db.cursor()
+cursor.execute("CREATE TABLE pages (datetime TEXT, url TEXT, keywords TEXT)")
 
-file = open("index2.html", "w")
-file.write(str(text))
-file.close()
+print(db.total_changes)

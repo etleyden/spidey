@@ -1,6 +1,8 @@
 # TODO
 
  * Load dynamic pages fully before scraping URLs
- * Fix bug where some URLs stop the program with the following error: `TypeError: expected string or bytes-like object`
- * Build a way to graphically represent the pages we visited
- * Build a way to write our data to disk
+ * Complete SQLite implementation
+     * Completed: Built a script to initialize the db
+     * Completed: Built the commands to insert data to the db after each run
+     * TODO: Prevent duplicate values from entering the DB
+ * Store compact page data in a pandas dataframe and manage starting/stopping the script without duplicate crawls
