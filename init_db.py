@@ -8,14 +8,13 @@ c = db.cursor() #Cursor
 
 # get existing tables
 c.execute(''' SELECT name FROM sqlite_master WHERE type='table' ''')
-existing_tables = c.fetchone()
+existing_tables = c.fetchall()
 
 # tables we need and the command to create them.
 # the command to create any table at index n in 'required_tables' is 
 # located in 'create_table_cmd[n]'
-required_tables = ['pages','visited_urls','queued_urls']
-create_table_cmd = ['CREATE TABLE pages (datetime TEXT, url TEXT, keywords TEXT)',
-                    'CREATE TABLE visited_urls (url TEXT)',
+required_tables = ['pages','queued_urls']
+create_table_cmd = ['CREATE TABLE pages (page_id TEXT, date_visited TEXT, url TEXT, keywords TEXT)',
                     'CREATE TABLE queued_urls (url TEXT)']
 
 # Check if the table exists, if not, create it
