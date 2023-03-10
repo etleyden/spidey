@@ -159,6 +159,8 @@ class Spidey:
     Stores pages, and keeps lists of visited and not-visited URLs it found.
     """
     def spin_web(self):
+        print("How many pages would you like to scrape? (Recommended: 30)")
+        pages_to_scrape = int(input())
         while len(self.queued_urls) > 0:
             # deqeue the first URL
             current_url = self.queued_urls.pop(0)
@@ -183,7 +185,7 @@ class Spidey:
                 self.pages.append(current_page)
                 self.num_pages += 1
 
-                if self.num_pages % 10 == 0:
+                if self.num_pages % pages_to_scrape == 0:
                     print("We've visited %d webpages. Continue? (y/n)" % (self.num_pages))
                     user_continue = input()
                     if user_continue == "n":
